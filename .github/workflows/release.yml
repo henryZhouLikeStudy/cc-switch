@@ -252,7 +252,7 @@ jobs:
               Copy-Item $sigPath (Join-Path release-assets ("$dest.sig"))
               Write-Host "Signature copied: $dest.sig"
             } else {
-              throw "Signature not found for $($msi.Name)"
+              Write-Host "⚠️ Signature not found for $($msi.Name)（fork 干跑无签名密钥，跳过 .sig）"
             }
           } else {
             throw "No Windows MSI installer found ($env:WINDOWS_RELEASE_ARCH)"
